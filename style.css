@@ -11,6 +11,46 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+
+  a {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.5s ease;
+  text-shadow: none;
+}
+
+a::before,
+a::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+a::before {
+  clip-path: inset(0 100% 0 0);
+  text-shadow: 2px 0 #f8f005, -2px 0 #e10c0c;
+}
+
+a::after {
+  clip-path: inset(0 0 0 100%);
+  text-shadow: 0 2px #f8f005, 0 -2px #e10c0c;
+}
+
+a:hover {
+  text-shadow: 2px 0 #f8f005, -2px 0 #e10c0c, 0 2px #f8f005, 0 -2px #e10c0c;
+}
+
+a:hover::before,
+a:hover::after {
+  clip-path: inset(0 0 0 0);
+}
 }
 
 nav ul {
@@ -43,7 +83,6 @@ nav a {
 
 .skills{
   padding: 40px 20px;
-  background-color: #1a0a1f; /* تیره اما نه سیاه */
   color: #f8f8f8;
 }
 
@@ -71,6 +110,64 @@ nav a {
   content: "🩸";
   position: absolute;
   left: 0;
+}
+
+
+/*scary mode*/
+body.dark-trap {
+  background-color: #2a0000;
+  color: #ffecec;
+  transition: all 0.4s ease-in-out;
+  filter: grayscale(60%) contrast(150%) brightness(80%);
+  animation: tremble 0.6s ease-in-out 6;
+  background-image: repeating-linear-gradient(45deg, rgba(255,0,0,0.2), rgba(255,0,0,0.2) 10px, transparent 10px, transparent 20px);
+  background-size: cover;
+  cursor: url('https://cur.cursors-4u.net/others/oth-1/oth72.cur'), auto;
+}
+
+/* shaking*/
+@keyframes tremble {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-10px, 5px); }
+  40% { transform: translate(10px, -5px); }
+  60% { transform: translate(-5px, 10px); }
+  80% { transform: translate(5px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* پیام وسط صفحه */
+#trapMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 38px;
+  font-style: oblique;
+  font-weight: bold;
+  font-family: serif;
+  background: #300000;
+  color: #ff013c;
+  padding: 40px 60px;
+  border: 10px double #f8f005;
+  z-index: 9999;
+  display: none;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 50px crimson;
+  animation: zoomIn 0.6s ease-in-out;
+}
+
+
+/* انیمیشن نمایش پیام */
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }
 
 

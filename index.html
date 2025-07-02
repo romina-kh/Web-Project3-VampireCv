@@ -14,9 +14,16 @@
         <li><a href="#">Skills</a></li>
         <li><a href="#">Crimes</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="#" id="lightModeTrap">Light Mode</a></li>
+
       </ul>
     </nav>
   </header>
+
+  <div id="trapMessage">
+    <p>Coward... Did you really try to escape the darkness?</p>
+    <p>Well there is No light here! Only eternal night</p>
+  </div>
 
   <section class="hero">
     <img src="image/vampire.png" alt="vampire pic">
@@ -29,11 +36,11 @@
     <section class="skills">
       <h2>Skills</h2>
       <ul class="skills-list">
-        <li> HTML, CSS & JavaScript — for building dark & deadly front-ends</li>
-        <li> C++ & VHDL — for coffin automation & vampire OS kernels</li>
-        <li> Python — for blood pattern recognition and bat behavior analysis</li>
-        <li> Git & GitHub — version controlling the undead chaos</li>
-        <li> Night Vision Debugging — solving bugs even in the darkest nights</li>
+        <li> . HTML, CSS & JavaScript — for building dark & deadly front-ends</li>
+        <li> . C++ & VHDL — for coffin automation & vampire OS kernels</li>
+        <li> . Python — for blood pattern recognition and bat behavior analysis</li>
+        <li> . Git & GitHub — version controlling the undead chaos</li>
+        <li> . Night Vision Debugging — solving bugs even in the darkest nights</li>
       </ul>
 </section>
 
@@ -63,4 +70,32 @@
     
   });
 </script>
+
+<audio id="scarysound" src="sound/Scream.mp3"></audio>
+<script>
+  const trapLink = document.getElementById("lightModeTrap");
+  const trapMsg  = document.getElementById("trapMessage");
+
+trapLink.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  document.body.classList.add("dark-trap");
+  trapMsg.style.display = "block";
+
+  const trapSound = document.getElementById("scarysound");
+  if (trapSound) 
+  {
+    trapSound.currentTime = 0;
+    trapSound.play().catch(err => console.warn("sound error:", err));
+  }
+
+  setTimeout(() => {
+    trapMsg.style.display = "none";
+    document.body.classList.remove("dark-trap");
+  }, 7000);
+});
+
+</script>
+
+
 </body>
