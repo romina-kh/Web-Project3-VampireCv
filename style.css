@@ -41,6 +41,41 @@ nav a {
 
 
 
+.skills{
+  padding: 40px 20px;
+  background-color: #1a0a1f; /* تیره اما نه سیاه */
+  color: #f8f8f8;
+}
+
+.skills h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff013c;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.skills-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  margin-bottom: 12px;
+  font-size: 18px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 10px;
+}
+
+.skills-list li::before {
+  content: "🩸";
+  position: absolute;
+  left: 0;
+}
+
+
+/*=================================================================================================================================*/
+
 button,
 button::after {
   padding: 16px 24px;
@@ -138,3 +173,5 @@ button:hover::after {
     transform: translate(0);
   }
 }
+
+
