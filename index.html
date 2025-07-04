@@ -42,9 +42,16 @@
         <li> . Git & GitHub — version controlling the undead chaos</li>
         <li> . Night Vision Debugging — solving bugs even in the darkest nights</li>
       </ul>
-</section>
-
     </section>
+
+  </section>
+  
+  <div class="blood-wave">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+      <path d="M0,30 C150,80 350,0 500,40 L500,00 L0,0 Z"
+      style="stroke: none; fill: crimson; opacity: 0.7;"></path>
+      </svg>
+    </div>
 
     <section class="crimes">
       <h2>Crimes</h2>
@@ -59,52 +66,58 @@
 
     <section id="contact"></section>
 
-
-
-  </section>
-
-<audio id="coffinSound" src="sound/Coffin.mp3"></audio>
-<script>
-  const btn   = document.getElementById("coffinBtn");
-  const sound = document.getElementById("coffinSound");
-
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();  
-    sound.currentTime = 0;
-    sound.load(); // needed for some browsers
-    sound.play();
-
-    // setTimeout(() => {
-    // window.location.href = "https://en.wikipedia.org/wiki/Coffin";}, 3000);
     
+
+
+    <div class="blood-container">
+      <div class="drop1"></div>
+      <div class="drop2"></div>
+      <div class="drop3"></div>
+    </div>
+
+
+
+
+  <audio id="coffinSound" src="sound/Coffin.mp3"></audio>
+  <script>
+    const btn   = document.getElementById("coffinBtn");
+    const sound = document.getElementById("coffinSound");
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();  
+      sound.currentTime = 0;
+      sound.load(); // needed for some browsers
+      sound.play();
+
+      // setTimeout(() => {
+      // window.location.href = "https://en.wikipedia.org/wiki/Coffin";}, 3000);
+      
+    });
+  </script>
+
+  <audio id="scarysound" src="sound/Scream.mp3"></audio>
+  <script>
+    const trapLink = document.getElementById("lightModeTrap");
+    const trapMsg  = document.getElementById("trapMessage");
+
+  trapLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.body.classList.add("dark-trap");
+    trapMsg.style.display = "block";
+
+    const trapSound = document.getElementById("scarysound");
+    if (trapSound) 
+    {
+      trapSound.currentTime = 0;
+      trapSound.play().catch(err => console.warn("sound error:", err));
+    }
+
+    setTimeout(() => {
+      trapMsg.style.display = "none";
+      document.body.classList.remove("dark-trap");
+    }, 7000);
   });
-</script>
 
-<audio id="scarysound" src="sound/Scream.mp3"></audio>
-<script>
-  const trapLink = document.getElementById("lightModeTrap");
-  const trapMsg  = document.getElementById("trapMessage");
-
-trapLink.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  document.body.classList.add("dark-trap");
-  trapMsg.style.display = "block";
-
-  const trapSound = document.getElementById("scarysound");
-  if (trapSound) 
-  {
-    trapSound.currentTime = 0;
-    trapSound.play().catch(err => console.warn("sound error:", err));
-  }
-
-  setTimeout(() => {
-    trapMsg.style.display = "none";
-    document.body.classList.remove("dark-trap");
-  }, 7000);
-});
-
-</script>
-
-
+  </script>
 </body>
