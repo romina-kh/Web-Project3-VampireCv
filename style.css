@@ -189,6 +189,7 @@ button:hover::after {
   background: #0f0103;
   border-radius: 10% 25%;   ;
   border: 0.5px solid rgb(101, 0, 20);
+  margin-bottom: 30px;
   
 }
 
@@ -282,3 +283,109 @@ body.dark-trap {
   from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
   to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
+
+/* ==================== Footer ==================== */
+
+.copyright {
+  font-size: 12px;
+  color: #777;
+  margin-top: 20px;
+  font-style: italic;
+  text-align: center;
+}
+
+
+.contact-footer {
+  background-color: #390007;
+  color: #eee;
+  padding: 15px 20px;
+  border: #2a0000;
+  font-family: 'Courier New', monospace;
+}
+
+.contact-footer h2 {
+  font-size: 26px;
+  color: #ff003c;
+  margin: 0 0 10px 0;
+  text-align: center;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  min-width: 180px;
+}
+
+.le{
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-left p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-links li {
+  margin: 8px 0;
+}
+
+.contact-links a {
+  color: #ff7a7a;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #ff003c;
+  text-shadow: 0 0 6px crimson;
+}
+
+.urgent-call {
+  font-size: 15px;
+  color: #f66;
+  line-height: 1.5;
+}
+
+.urgent-call a {
+  color: #ff003c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.warning-text {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.warning-text::before {
+  content: "☠️ ";
+}
+
+.warning-text:hover {
+  color: crimson;
+  text-shadow: 0 0 8px red;
+}
+
