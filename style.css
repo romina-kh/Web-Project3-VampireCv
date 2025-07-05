@@ -1,4 +1,4 @@
-
+/* ==================== Base ==================== */
 body {
   background-color: #131315;
   color: #eee;
@@ -7,14 +7,15 @@ body {
   line-height: 1.6;
 }
 
-
+/* ==================== Nav ==================== */
 nav {
   background-color: #390007;
   color: #f0f4f5;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem 2rem;
+  position: relative;
 }
 
 nav h1 {
@@ -22,6 +23,15 @@ nav h1 {
   font-size: 32px;
   color: #ff003c;
   text-shadow: 2px 2px #000;
+  margin: 0 0 0 60px;
+}
+
+.bat-image {
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 nav ul {
@@ -36,7 +46,6 @@ nav a {
   color: #f0f4f5;
   text-decoration: none;
   font-weight: bold;
-  position: relative;
   transition: all 0.5s ease;
 }
 
@@ -45,7 +54,7 @@ nav a:hover {
   text-shadow: 2px 2px 6px #e00;
 }
 
-
+/* ==================== Hero ==================== */
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +82,7 @@ nav a:hover {
   color: #ccc;
 }
 
-/* Button */
+/* ==================== Button ==================== */
 button,
 button::after {
   padding: 16px 24px;
@@ -89,17 +98,11 @@ button::after {
 }
 
 button::after {
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
   content: "Download Coffin";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(45deg, transparent 3%, #9ba0ab 3%, #9ba0ab 5%, #b9081d 5%);
-  clip-path: var(--slice-0);
+  clip-path: inset(50% 50% 50% 50%);
   z-index: 1;
 }
 
@@ -108,36 +111,50 @@ button:hover::after {
 }
 
 @keyframes glitch {
-  0%   { clip-path: var(--slice-1); transform: translate(-20px, -10px); }
-  20%  { clip-path: var(--slice-2); transform: translate(10px, 10px); }
-  40%  { clip-path: var(--slice-3); transform: translate(-5px, 5px); }
-  60%  { clip-path: var(--slice-4); transform: translate(5px, -5px); }
-  80%  { clip-path: var(--slice-5); transform: translate(20px, -10px); }
-  100% { clip-path: var(--slice-1); transform: translate(0); }
+  0%   { clip-path: inset(80% -6px 0 0); transform: translate(-20px, -10px); }
+  20%  { clip-path: inset(50% -6px 30% 0); transform: translate(10px, 10px); }
+  40%  { clip-path: inset(10% -6px 85% 0); transform: translate(-5px, 5px); }
+  60%  { clip-path: inset(40% -6px 43% 0); transform: translate(5px, -5px); }
+  80%  { clip-path: inset(80% -6px 5% 0); transform: translate(20px, -10px); }
+  100% { clip-path: inset(80% -6px 0 0); transform: translate(0); }
 }
 
+/* ==================== Skills & Crimes ==================== */
+.section-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 60px;
+  flex-wrap: wrap;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
 
 .skills {
-  padding: 60px 60px;
   background: #1c0c0e;
   border-radius: 25% 10%;
   border: 0.5px solid rgb(101, 0, 20);
-
 }
 
-.skills h2 {
+.skills h2,
+.crimes h2 {
   font-size: 30px;
   color: #d41333;
   text-shadow: 2px 2px #000;
   margin-bottom: 20px;
 }
 
-.skills-list {
+.skills-list,
+.crimes-list {
   list-style: none;
-  padding-left: 20px;
+  padding: 0;
 }
 
-.skills-list li {
+.skills-list li,
+.crimes-list li {
   margin-bottom: 10px;
   font-size: 18px;
   position: relative;
@@ -150,18 +167,25 @@ button:hover::after {
   left: 0;
 }
 
-
-.crimes {
-  padding: 60px 20px;
-  background: #0f0103;
-  position: relative;
+.crimes-list li::after {
+  content: "🕸️";
+  position: absolute;
+  left: -20px;
 }
 
-.crimes h2 {
-  font-size: 30px;
-  color: #d41333;
-  text-shadow: 2px 2px #000;
-  margin-bottom: 20px;
+.crimes-image {
+  width: 500px;
+  object-fit: contain;
+  padding-top: 30px;
+  padding-left: 50px;
+  filter: drop-shadow(0 0 30px rgb(159, 44, 67));
+}
+
+.crimes {
+  background: #0f0103;
+  border-radius: 10% 25%;   ;
+  border: 0.5px solid rgb(101, 0, 20);
+  
 }
 
 .crime-intro {
@@ -170,25 +194,7 @@ button:hover::after {
   color: #ccc;
 }
 
-.crimes-list {
-  list-style: none;
-  padding-left: 20px;
-}
-
-.crimes-list li {
-  margin-bottom: 10px;
-  font-size: 18px;
-  position: relative;
-  padding-left: 24px;
-}
-
-.crimes-list li::after {
-  content: "🕸️";
-  position: absolute;
-  left: -20px;
-}
-
-/* Blood Wave */
+/* ==================== Blood Wave ==================== */
 .blood-wave {
   position: relative;
   height: 50px;
@@ -202,7 +208,7 @@ button:hover::after {
   display: block;
 }
 
-/* Dripping Blood */
+/* ==================== Dripping Blood ==================== */
 .blood-container {
   position: relative;
   height: 30px;
@@ -229,7 +235,7 @@ button:hover::after {
   100% { top: 30px; opacity: 0; transform: scaleY(2); }
 }
 
-/* Light Mode Trap */
+/* ==================== Light Mode Trap ==================== */
 body.dark-trap {
   background-color: #2a0000;
   color: #ffecec;
